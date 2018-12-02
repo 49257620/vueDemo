@@ -1,0 +1,25 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <my-test-globle message="父组件传来的消息1"></my-test-globle>
+      <my-test-globle message="父组件传来的消息2"></my-test-globle>
+      <my-test-globle :message="msg"></my-test-globle>  
+    </div> 
+  </body>
+  <script>
+    Vue.component('my-test-globle',{
+      props : ['message'],
+      template:'<div>{{ message }}</div>'
+    })
+    var app = new Vue({
+      el: "#app",
+      data:{
+        msg:'哈哈哈'
+      }
+    });
+  </script>
+</html>

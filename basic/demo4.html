@@ -1,0 +1,31 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!--
+      <button v-on:click="handleClick">{{ name }}</button>
+      <p v-if="show">显示这段文本</p>
+      -->
+      <button @click="handleClick">{{ name }}</button>
+      <p v-if="show">显示这段文本</p>
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data:{
+        show: true,
+        name: '隐藏'
+      },
+      methods :{
+        handleClick:function(){
+          this.show = !this.show
+          this.name = this.show?'隐藏':'显示'
+        }
+      }
+    });
+  </script>
+</html>

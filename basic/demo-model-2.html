@@ -1,0 +1,31 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      
+      <input type="radio" v-model="r1" :value="r1value"><br/><br/>
+      <input type="checkbox" v-model="ck1" :true-value="ch1true" :false-value="ch1false"><br/><br/>
+
+      <select v-model="main">
+        <option :value="{number:123}">Java</option>
+      </select>
+      
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        r1value : '0',
+        r1 : '',
+        ck1 : null,
+        ch1true : true,
+        ch1false : false,
+        main : null
+      }
+    });
+  </script>
+</html>

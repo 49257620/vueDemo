@@ -1,0 +1,32 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <my-cnt></my-cnt><br/>
+      <my-cnt></my-cnt><br/>
+      <my-cnt></my-cnt><br/>
+    </div> 
+  </body>
+  <script>
+    Vue.component('my-cnt',{
+      //template:'<div><button @click="cntAdd()">点我:{{cnt}}</button></div>',
+      template:'<div><button @click="cnt++">点我:{{cnt}}</button></div>',
+      data: function(){
+        return {
+          cnt : 0
+        }
+      },
+      methods:{
+        cntAdd:function(step=1){
+          this.cnt += step
+        }
+      }
+    })
+    var app = new Vue({
+      el: "#app"
+    });
+  </script>
+</html>

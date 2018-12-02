@@ -1,0 +1,72 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      books
+      <ul>
+        <li v-for="(book,index) in books">{{ index+1 }}-{{ book.name }}</li>
+      </ul>
+      books filter: o
+      <ul>
+        <li v-for="(book,index) in filterBooks">{{ index+1 }}-{{ book.name }}</li>
+      </ul>
+      <pre>
+        
+        filterBooks:function(){
+          return this.books.filter(function(item){
+            return item.name.match(/o/)
+          })
+        }
+        
+      </pre>
+
+      books sort: 
+      <ul>
+        <li v-for="(book,index) in sortBooks">{{ index+1 }}-{{ book.name }}</li>
+      </ul>
+      <pre>
+        
+        sortBooks:function(){
+          return this.books.sort(function(a,b){
+            return a.name.length < b.name.length
+          })
+        }
+        
+      </pre>
+      
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        books: [
+          {name:'<<Python>>'},
+          {name:'<<Java>>'},
+          {name:'<<C++>>'},
+          {name:'<<Go>>'}
+        ],
+        user:{
+          name: 'liuwei',
+          age: 35,
+          sex: 'male'
+        }
+      },
+      computed:{
+        filterBooks:function(){
+          return this.books.filter(function(item){
+            return item.name.match(/o/)
+          })
+        },
+        sortBooks:function(){
+          return this.books.sort(function(a,b){
+            return a.name.length < b.name.length
+          })
+        }
+      }
+    });
+  </script>
+</html>

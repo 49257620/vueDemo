@@ -1,0 +1,46 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ date | formatDate }}
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        date: new Date()
+      },
+      filters:{
+        formatDate: function(value){
+          var year = value.getFullYear()
+          var month = value.getMonth() + 1
+          var day = value.getDate()
+          var H = value.getHours()
+          var m = value.getMinutes()
+          var s = value.getSeconds()
+          month = month>=10?month:"0"+month
+          day = day>=10?day:"0"+day
+          H = H>=10?H:"0"+H
+          m = m>=10?m:"0"+m
+          s = s>=10?s:"0"+s
+          return year+"-"+month+"-"+day+" "+H+":"+m+":"+s
+        }
+      },
+      created: function (){
+        var _this = this;
+        this.timmer = setInterval(function (){
+          _this.date = new Date()
+        }, 1000)
+      },
+      beforeDestroy: function(){
+        if (this.timmer){
+          clearInterval(this.timmer)
+        }
+      }
+    });
+  </script>
+</html>

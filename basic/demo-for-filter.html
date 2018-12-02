@@ -1,0 +1,58 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      books
+      <ul>
+        <li v-for="(book,index) in books">{{ index+1 }}-{{ book.name }}</li>
+      </ul>
+      books filter: o
+      <ul>
+        <li v-for="(book,index) in filterBooks">{{ index+1 }}-{{ book.name }}</li>
+      </ul>
+      <pre>
+        computed:{
+          filterBooks:function(){
+            return this.books.filter(function(item){
+              return item.name.match(/o/)
+            })
+          }
+        }
+      </pre>
+      user
+      <ul>
+        <li v-for="(v,k,i) in user">{{ i+1 }}-{{ k }}-{{ v }}</li>
+      </ul>
+      numbers: v-for="n in 10"<br/>
+      <span v-for="n in 10">{{ n }} </span>
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        books: [
+          {name:'<<Python>>'},
+          {name:'<<Java>>'},
+          {name:'<<C++>>'},
+          {name:'<<Go>>'}
+        ],
+        user:{
+          name: 'liuwei',
+          age: 35,
+          sex: 'male'
+        }
+      },
+      computed:{
+        filterBooks:function(){
+          return this.books.filter(function(item){
+            return item.name.match(/o/)
+          })
+        }
+      }
+    });
+  </script>
+</html>

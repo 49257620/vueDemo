@@ -1,0 +1,21 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="status === 1">当前值为1</p>
+      <p v-else-if="status === 2">当前值为2</p>
+      <p v-else>当前值不为1也不为2</p>
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        status: 1
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,26 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="book in books">{{ book.name }}</li>
+      </ul>
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        books: [
+          {name:'<<Python>>'},
+          {name:'<<Java>>'},
+          {name:'<<C++>>'},
+          {name:'<<Go>>'}
+        ]
+      }
+    });
+  </script>
+</html>

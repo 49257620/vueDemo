@@ -1,0 +1,32 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!--
+      <a v-bind:href="url">百度</a>
+      <img v-bind:src="imgUrl"/>
+      -->
+      <a :href="url">百度</a>
+      <img :src="imgUrl"/>
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        url: "http://www.baidu.com",
+        imgUrl: "https://www.baidu.com/img/bd_logo1.png"
+      }
+    });
+  </script>
+</html>
+<!--
+  http://www.51reboot.com
+  http://www.baidu.com
+  https://www.baidu.com/img/bd_logo1.png
+  http://www.51reboot.com/_nuxt/img/mingpian.9b444d4.svg
+  http://www.51reboot.com/_nuxt/img/python.ec4517f.png
+-->

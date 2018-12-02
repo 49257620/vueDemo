@@ -1,0 +1,51 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <my-test-globle @changecnt="handleChangeCnt" :cntsub="cnt"></my-test-globle>
+    {{ cnt }}
+</div>
+</body>
+<script>
+    Vue.component('my-test-globle', {
+        props: {
+            cntsub: {
+                type: Number,
+                required: true
+            }
+        },
+        data: function () {
+            return {
+                mycnt: this.cntsub
+            }
+        },
+        template: '<div><button @click="handleClickAdd">+1</button><br/><button @click="handleClickMinus">-1</button></div>',
+        methods: {
+            handleClickAdd() {
+                this.mycnt += 1
+                this.$emit('changecnt', this.mycnt)
+            },
+            handleClickMinus() {
+                this.mycnt -= 1
+                this.$emit('changecnt', this.mycnt)
+            },
+        }
+
+    })
+    var app = new Vue({
+        el: "#app",
+        data: {
+            cnt: 20
+        },
+        methods: {
+            handleChangeCnt(cnt) {
+                this.cnt = cnt
+                //console.log(cnt)
+            }
+        }
+    });
+</script>
+</html>

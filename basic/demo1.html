@@ -1,0 +1,25 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ message }}
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        message: "你好, vue.js"
+      },
+      created: function (){
+        console.log(this.message);
+      },
+      mounted: function (){
+        console.log(this.$el);
+      }
+    });
+  </script>
+</html>

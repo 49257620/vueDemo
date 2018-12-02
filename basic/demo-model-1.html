@@ -1,0 +1,49 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="name" :placeholder="namemsg"><br/><br/>
+      <textarea v-model="desc"></textarea>
+      <pre>{{ desc }}</pre>
+      <input type="radio" name='sex' value="0" v-model="sex"> <label for="0">女</label>
+      <input type="radio" name='sex' value="1" v-model="sex"> <label for="1">男</label>
+      <br/><br/>  
+      <select v-model="main">
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="C++">C++</option>
+        <option value="Go">Go</option>
+      </select><br/><br/>  
+      <select v-model="mainmultiple" multiple="">
+        <option v-for="option in options" :value="option.value">{{ option.text }}</option>
+      </select><br/><br/>  
+      <input type="checkbox" name='hobbies' value="js" v-model="hobbies"> <label for="js">js</label>
+      <input type="checkbox" name='hobbies' value="html" v-model="hobbies"> <label for="html">html</label>
+      <input type="checkbox" name='hobbies' value="css" v-model="hobbies"> <label for="css">css</label>
+      <br/><br/>  
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        name : '',
+        namemsg : '请输入...',
+        desc : '你好,\n我是textarea',
+        sex : '1',
+        hobbies : ['js','css'],
+        main : 'Python',
+        mainmultiple : ['Python','C++'],
+        options : [
+          {text:'Java',value:'Java'},
+          {text:'Python',value:'Python'},
+          {text:'C++',value:'C++'},
+          {text:'Go',value:'Go'}
+        ]
+      }
+    });
+  </script>
+</html>

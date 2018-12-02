@@ -1,0 +1,26 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ cnt }}</p>
+      <button @click="cntAdd()">Add 1</button>
+      <button @click="cntAdd(10)">Add 10</button>
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        cnt : 0
+      },
+      methods:{
+        cntAdd:function(step=1){
+          this.cnt += step
+        }
+      }
+    });
+  </script>
+</html>

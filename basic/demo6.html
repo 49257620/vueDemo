@@ -1,0 +1,36 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--<script src="vue.js"></script>-->
+  </head>
+  <body>
+    <div id="app">
+      全名: {{ fullName }}
+    </div> 
+  </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data:{
+        firstName : 'Liu',
+        lastName : 'Wei'
+
+      },
+      computed: {
+        fullName : {
+          get:function(){
+            return this.firstName + ' ' +this.lastName
+          },
+          set:function(value){
+            //app.fullName =  'Zhang San' 浏览器
+            //this.fullName =  'Zhang San'  js代码
+            var names = value.split(' ')
+            this.firstName = names[0]
+            this.lastName = names[1]
+          }
+        }
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,25 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <my-test-globle></my-test-globle>
+      <my-test-globle></my-test-globle>  
+    </div> 
+  </body>
+  <script>
+    Vue.component('my-test-globle',{
+      template:'<div>{{ message }}</div>',
+      data: function(){
+        return {
+          message : '全局内容'
+        }
+      }
+    })
+    var app = new Vue({
+      el: "#app"
+    });
+  </script>
+</html>
