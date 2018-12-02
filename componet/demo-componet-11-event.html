@@ -1,0 +1,44 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <my-test-globle @input="handleInput"></my-test-globle>
+    {{ cnt }}
+</div>
+</body>
+<script>
+    Vue.component('my-test-globle', {
+        data: function () {
+            return {
+                mycnt: this.$parent.cnt
+            }
+        },
+        template: '<div><button @click="handleClickAdd">+1</button><br/><button @click="handleClickMinus">-1</button></div>',
+        methods: {
+            handleClickAdd() {
+                this.mycnt += 1
+                this.$emit('input', this.mycnt)
+            },
+            handleClickMinus() {
+                this.mycnt -= 1
+                this.$emit('input', this.mycnt)
+            },
+        }
+
+    })
+    var app = new Vue({
+        el: "#app",
+        data: {
+            cnt: 20
+        },
+        methods: {
+            handleInput(val){
+                this.cnt = val
+            }
+        }
+    });
+</script>
+</html>
